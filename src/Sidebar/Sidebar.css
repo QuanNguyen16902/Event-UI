@@ -1,0 +1,122 @@
+.sidebar {
+    width: 300px;
+    padding: 20px;
+    border-right: 1px solid #ddd;
+  }
+  
+  .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  .menu {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Tăng khoảng cách giữa các mục */
+    margin-top: 50px;
+  }
+  
+  .menu-item {
+    display: flex;
+    align-items: center; /* Căn chỉnh icon và text theo chiều dọc */
+    gap: 10px; /* Tạo khoảng cách giữa icon và text */
+    background-color: #ffffff; /* Nền trắng */
+    border: 1px solid #ffa500; /* Viền cam */
+    padding: 6px 20px; /* Tăng padding */
+    font-size: 1rem; /* Kích thước chữ */
+    font-weight: 500; /* Tăng độ đậm chữ */
+    color: #000; /* Màu chữ đen */
+    text-align: left; /* Căn chữ sang trái */
+    border-radius: 12px; /* Viền bo tròn lớn hơn */
+    cursor: pointer;
+    transition: all 0.3s ease; /* Hiệu ứng chuyển đổi mượt */
+  }
+  
+  .menu-item:hover {
+    background-color: #ffa500; /* Nền cam khi hover */
+    color: #fff; /* Màu chữ trắng khi hover */
+    transform: scale(1.05); /* Phóng to nhẹ khi hover */
+  }
+  
+  .menu-item.active {
+    background-color: #ffa500; /* Nền cam cho mục đang hoạt động */
+    color: #fff; /* Màu chữ trắng */
+    font-weight: bold; /* Chữ đậm */
+  }
+  
+  .menu-item i {
+    font-size: 1.2rem; /* Kích thước icon lớn hơn một chút */
+  }
+  
+  /* .theme-switcher {
+    margin-top: auto;
+  }
+  
+  .theme-btn {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .theme-btn.light {
+    background-color: #fff;
+    color: #000;
+    border: 1px solid #ddd;
+  }
+  
+  .theme-btn.dark {
+    background-color: #333;
+    color: #fff;
+  } */
+  
+ /* Ensure smooth transition for button background changes */
+.theme-switcher .btn {
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  /* Default button styles */
+  .theme-switcher {
+    overflow: hidden; /* Hide overflowed borders */
+  }
+  
+  .btn-white {
+    background-color: #fff;
+    color: #000;
+    border: none;
+  }
+  
+  .btn-warning {
+    color: #f3f1f1;
+  }
+  
+  .btn-warning:hover {
+    background-color: #ff8c00; /* Darker orange on hover */
+  }
+  
+  .btn-white:hover {
+    background-color: #f8f9fa; /* Lighter gray on hover */
+  }
+  
+  /* Dark theme button */
+  .theme-switcher .btn-dark {
+    background-color: #333;
+    color: white;
+  }
+  
+  .theme-switcher .btn-dark:hover {
+    background-color: #444; /* Slightly lighter gray on hover */
+  }
+  
+  /* Light theme button */
+  .theme-switcher .btn-light {
+    background-color: #f8f9fa;
+    color: #000;
+  }
+  
+  .theme-switcher .btn-light:hover {
+    background-color: #e2e6ea; /* Lighter gray for hover effect */
+  }
+  
