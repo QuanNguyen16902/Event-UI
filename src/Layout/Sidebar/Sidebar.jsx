@@ -1,7 +1,10 @@
 import React from "react";
+import { useTheme } from "../../context/ThemeContext";
 import "./Sidebar.css";
+import ThemeSwitcher from "./ThemeSwitcher";
 
 function Sidebar() {
+  const { theme, toggleTheme } = useTheme();
   return (
     <div className="sidebar d-flex flex-column">
       <div className="logo">
@@ -28,12 +31,15 @@ function Sidebar() {
         </button>
       </nav>
       <div className="theme-switcher d-flex border rounded">
-        <button className="btn btn-warning flex-grow-1 d-flex align-items-center justify-content-center border-end">
+        {/* <button className="btn btn-warning flex-grow-1 d-flex align-items-center justify-content-center border-end">
           <i className="bi bi-brightness-high me-2"></i> Light
         </button>
         <button className="btn btn-white flex-grow-1 d-flex align-items-center justify-content-center">
           <i className="bi bi-moon-stars me-2"></i> Dark
-        </button>
+        </button> */}
+
+        {/* Nút chuyển sang light theme */}
+        <ThemeSwitcher />
       </div>
     </div>
   );

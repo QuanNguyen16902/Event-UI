@@ -1,13 +1,17 @@
+/* Hiệu ứng chuyển đổi mượt mà cho toàn bộ trang khi thay đổi theme */
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
+    transition: background-color 0.5s ease, color 0.5s ease; /* Hiệu ứng chuyển đổi cho background và màu chữ */
+  }
+  
+  /* Theme light */
+  body[data-bs-theme='light'] {
+    background-color: #ffffff;
+    color: #000000;
+  }
+  
+  /* Theme dark */
+  body[data-bs-theme='dark'] {
+    background-color: #121212;
+    color: #ffffff;
+  }
+  

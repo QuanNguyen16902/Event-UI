@@ -1,0 +1,6 @@
+.table-container {
+    max-height: 500px; /* Chiều cao tối đa cho bảng */
+    overflow-y: auto; /* Hiển thị thanh cuộn theo chiều dọc */
+    border: 1px solid #ddd; /* Viền cho bảng */
+  }
+  

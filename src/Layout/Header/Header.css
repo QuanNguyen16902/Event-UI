@@ -1,0 +1,26 @@
+.main-header {
+  /* position: fixed; */
+  height: 60px;
+  padding: 0px 20px;
+  background-color: white;
+  border-radius: 10px;
+  width: 1330px;
+  /* left: 300px;  */
+}
+.mainheader {
+  position: fixed; /* Giữ cố định khi cuộn */
+  top: 0; /* Gắn header ở trên cùng */
+  left: 300px; /* Gắn sát bên trái */
+  right: 0; /* Gắn sát bên phải */
+  height: 60px;
+  padding: 0px 20px;
+  background-color: white;
+  border-radius: 0; /* Bỏ viền bo tròn */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Hiệu ứng đổ bóng */
+  z-index: 1000; /* Đảm bảo header nằm trên cùng */
+}
+
+.user-avatar {
+  width: 40px;
+  height: 40px;
+}

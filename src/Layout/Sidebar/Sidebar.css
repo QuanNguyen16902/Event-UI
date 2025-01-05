@@ -1,8 +1,16 @@
 .sidebar {
-    width: 300px;
-    padding: 20px;
-    border-right: 1px solid #ddd;
-  }
+  position: fixed; /* Giữ sidebar cố định */
+  top: 0;
+  left: 0;
+  height: 100vh; /* Chiều cao đầy đủ của viewport */
+  width: 300px; /* Đảm bảo chiều rộng như mong muốn */
+  padding: 20px;
+  border-right: 1px solid #ddd;
+  background-color: #f9f9f9; /* Nền sidebar */
+  overflow-y: auto; /* Nếu nội dung vượt quá, thêm cuộn dọc */
+  z-index: 1000; /* Đảm bảo sidebar luôn nằm trên các thành phần khác */
+}
+
   
   .logo {
     font-size: 1.5rem;

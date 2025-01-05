@@ -1,65 +1,72 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
+import { Navigate, Route, Routes } from "react-router-dom";
 import "./App.css";
-import Footer from "./Footer/Footer";
-import Main from "./Main/Main";
-import Sidebar from "./Sidebar/Sidebar";
+import DefaultLayout from "./Layout/DefaultLayout";
+import { privateRoutes, publicRoutes } from "./router";
+import { getToken } from "./utils/auth";
+const PrivateRoute = ({ element, ...rest }) => {
+  const token = getToken();
+  return token ? element : <Navigate to="/login" />;
+};
+
+// Component to protect public routes
+const PublicRoute = ({ element, ...rest }) => {
+  const token = getToken();
+  return !token ? element : <Navigate to="/" />;
+};
 
 const App = () => {
   // State to track the current theme (dark or light)
-  const [isDarkMode, setIsDarkMode] = useState(false);
-
-  // Toggle theme function
-  const toggleTheme = () => {
-    setIsDarkMode(!isDarkMode);
-  };
-
-  // Apply theme to the body element on theme change
-  useEffect(() => {
-    if (isDarkMode) {
-      document.body.classList.add("dark-theme");
-      document.body.classList.remove("light-theme");
-    } else {
-      document.body.classList.add("light-theme");
-      document.body.classList.remove("dark-theme");
-    }
-  }, [isDarkMode]);
-
   return (
-    <div className="app d-flex">
-      {/* Theme Switcher */}
-      {/* <div className="theme-switcher d-flex border rounded">
-        <button
-          className={`btn ${
-            !isDarkMode ? "btn-warning" : "btn-light"
-          } flex-grow-1 d-flex align-items-center justify-content-center border-end`}
-          onClick={toggleTheme}
-        >
-          <i
-            className={`bi ${
-              !isDarkMode ? "bi-brightness-high" : "bi-brightness-high-fill"
-            } me-2`}
-          ></i>
-          Light
-        </button>
-        <button
-          className={`btn ${
-            isDarkMode ? "btn-dark" : "btn-white"
-          } flex-grow-1 d-flex align-items-center justify-content-center`}
-          onClick={toggleTheme}
-        >
-          <i
-            className={`bi ${isDarkMode ? "bi-moon-stars" : "bi-moon"} me-2`}
-          ></i>
-          Dark
-        </button>
-      </div> */}
+    <div>
+      <Routes>
+        {privateRoutes.map((route, index) => {
+          const Layout = route.layout || DefaultLayout;
+          const Page = route.component;
+          const pageTitle = route.pageTitle;
+          const childPageTitle = route.childPage;
 
-      {/* Sidebar, Main Content, and Footer */}
-      <Sidebar theme={isDarkMode ? "dark" : "light"} />
-      <div className="content d-flex flex-column">
-        <Main theme={isDarkMode ? "dark" : "light"} />
-        <Footer theme={isDarkMode ? "dark" : "light"} />
-      </div>
+          return (
+            <Route
+              key={index}
+              path={route.path}
+              element={
+                <PrivateRoute
+                  element={
+                    <Layout
+                      pageTitle={pageTitle}
+                      childPage={childPageTitle}
+                      children={<Page />}
+                    ></Layout>
+                  }
+                />
+              }
+            />
+          );
+        })}
+
+        {publicRoutes.map((route, index) => {
+          const Layout = route.layout || DefaultLayout;
+          const Page = route.component;
+          const pageTitle = route.pageTitle;
+
+          return (
+            <Route
+              key={index}
+              path={route.path}
+              element={
+                <PublicRoute
+                  element={
+                    <Layout pageTitle={pageTitle}>
+                      <Page />
+                    </Layout>
+                  }
+                />
+              }
+            />
+          );
+        })}
+      </Routes>
     </div>
   );
 };

@@ -1,0 +1,101 @@
+/* Tùy chỉnh cho layout */
+.image-side-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%; /* Đảm bảo chiều cao của container bằng chiều cao của form-side */
+  background: linear-gradient(135deg, #ff6600, #f8b500);
+}
+
+.image-side {
+  background-size: cover;
+  background-position: center;
+  height: 33.33%; /* Chia đều chiều cao cho ba phần hình ảnh */
+  border: 5px solid #ff6600; /* Đổi màu border thành màu cam sáng */
+  border-radius: 10px; /* Bo tròn các góc của border */
+}
+
+.image-side:nth-child(1) {
+  background-image: url("https://www.usol-v.com.vn/wp-content/uploads/2023/08/IMG_0901-1-111111-1024x683.jpg");
+  background-color: #ff6600; /* Đặt màu nền giống với background của form */
+}
+.image-side:nth-child(2) {
+  background-image: url("https://www.usol-v.com.vn/wp-content/uploads/2023/05/1.jpg");
+  background-color: #ff6600; /* Đặt màu nền giống với background của form */
+}
+.image-side:nth-child(3) {
+  background-image: url("background-usol.jpg");
+  background-color: #ff6600; /* Đặt màu nền giống với background của form */
+}
+
+.form-side {
+  background: linear-gradient(135deg, #ff6600, #f8b500);
+  /* background: #fff; */
+  /* Giữ màu gradient */
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.login-form {
+  background-color: #292929;
+  padding: 30px;
+  border-radius: 15px;
+  width: 100%;
+  max-width: 400px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+  text-align: center;
+}
+.login-form img {
+  margin-bottom: 20px;
+  max-width: 150px;
+}
+.login-form h4 {
+  color: #ffa500;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+.form-floating {
+  margin-bottom: 15px;
+}
+.form-control {
+  background-color: #404040;
+  color: #ffffff;
+  border: 1px solid #ffa500;
+  border-radius: 10px;
+}
+.form-control:focus {
+  background-color: #505050;
+  color: white;
+  border-color: #ffae42;
+  box-shadow: 0 0 5px #ffae42;
+}
+.form-control::placeholder {
+  color: #e0e0e0; /* Màu sáng hơn cho placeholder */
+}
+.form-floating label {
+  color: #e0e0e0; /* Màu sáng hơn cho chữ label */
+}
+.btn-primary {
+  background-color: #ffa500;
+  border: none;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 10px;
+  padding: 10px 20px;
+}
+.btn-primary:hover {
+  background-color: #ff8c00;
+}
+.text-center a {
+  color: #ffa500;
+  text-decoration: none;
+}
+.text-center a:hover {
+  text-decoration: underline;
+}
+.quote {
+  font-style: italic;
+  color: #ffd580;
+  font-size: 14px;
+  margin-bottom: 20px;
+}

@@ -1,15 +1,12 @@
 import React from "react";
 import Header from "../Header/Header";
-import ContentArea from "./ContentArea";
 import "./Main.css";
-import SearchBar from "./SearchBar";
 
-function Main() {
+function Main({ children }) {
   return (
     <main className="main p-4">
       <Header />
-      <SearchBar />
-      <ContentArea />
+      <div className="content-area">{children}</div>
     </main>
   );
 }
